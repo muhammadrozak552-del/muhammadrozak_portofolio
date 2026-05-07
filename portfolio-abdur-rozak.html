@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mokhammad Abdur Rozak — Admin & Data Entry Freelancer</title>
+<meta name="description" content="Portofolio freelance admin data dan entry data Mokhammad Abdur Rozak, Surabaya. Berpengalaman dalam pengelolaan data, spreadsheet, dan administrasi digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a2e;
+    --ink-soft: #4a4a6a;
+    --ink-muted: #8888aa;
+    --surface: #fafaf8;
+    --surface-2: #f0f0ec;
+    --surface-3: #e8e8e2;
+    --accent: #2d6a4f;
+    --accent-light: #d8f3dc;
+    --accent-mid: #52b788;
+    --gold: #b5838d;
+    --border: rgba(26,26,46,0.1);
+    --border-soft: rgba(26,26,46,0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo { font-family: 'Lora', serif; font-size: 17px; color: var(--ink); letter-spacing: .3px; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-size: 13px; color: var(--ink-soft); text-decoration: none; font-weight: 500; letter-spacing: .3px; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent); color: white; border: none; border-radius: 6px;
+    padding: 8px 18px; font-size: 13px; font-weight: 500; cursor: pointer;
+    font-family: 'Outfit', sans-serif; transition: background .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .nav-cta:hover { background: #1b4332; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+  .hero-left {
+    padding: 80px 60px 80px 80px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-right {
+    background: var(--accent);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .hero-right::after {
+    content: '';
+    position: absolute; bottom: -60px; left: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12px; font-weight: 500; color: var(--accent);
+    background: var(--accent-light); border-radius: 20px;
+    padding: 5px 14px; margin-bottom: 24px;
+    letter-spacing: .4px;
+  }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-mid); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+
+  .hero-name {
+    font-family: 'Lora', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-role {
+    font-size: 14px; font-weight: 500; color: var(--ink-muted);
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero-desc {
+    font-size: 16px; line-height: 1.75; color: var(--ink-soft);
+    max-width: 420px; margin-bottom: 36px;
+  }
+  .hero-contacts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+  .contact-row {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .contact-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .hero-btns { display: flex; gap: 12px; }
+  .btn-primary {
+    background: var(--accent); color: white; border: none; border-radius: 8px;
+    padding: 12px 24px; font-size: 14px; font-weight: 500; cursor: pointer;
+    font-family: 'Outfit', sans-serif; transition: all .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: #1b4332; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: var(--ink); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 24px; font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: 'Outfit', sans-serif; transition: all .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-ghost:hover { background: var(--surface-2); }
+
+  /* RIGHT PANEL STATS */
+  .right-title {
+    font-family: 'Lora', serif; font-size: 22px; color: white;
+    text-align: center; margin-bottom: 36px; line-height: 1.4;
+    position: relative; z-index: 1;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; width: 100%; max-width: 340px;
+    position: relative; z-index: 1;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px; padding: 20px 16px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+  }
+  .stat-big { font-family: 'Lora', serif; font-size: 32px; font-weight: 600; color: white; line-height: 1; }
+  .stat-lbl { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 5px; letter-spacing: .5px; }
+  .location-badge {
+    margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.65);
+    display: flex; align-items: center; gap: 5px; position: relative; z-index: 1;
+  }
+
+  /* SECTION LAYOUT */
+  section { padding: 80px 80px; }
+  section:nth-child(even) { background: var(--surface-2); }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Lora', serif; font-size: 32px; font-weight: 600;
+    color: var(--ink); margin-bottom: 14px; line-height: 1.3;
+  }
+  .section-sub { font-size: 15px; color: var(--ink-soft); max-width: 520px; line-height: 1.7; margin-bottom: 48px; }
+
+  /* SKILLS */
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .skill-group-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px;
+  }
+  .skill-group-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .skill-group-icon { font-size: 18px; }
+  .skill-bars { display: flex; flex-direction: column; gap: 12px; }
+  .skill-item {}
+  .skill-top { display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .skill-name { font-size: 13px; color: var(--ink-soft); }
+  .skill-pct { font-size: 12px; color: var(--accent); font-weight: 600; }
+  .skill-bar { height: 5px; background: var(--surface-3); border-radius: 4px; overflow: hidden; }
+  .skill-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); border-radius: 4px; transition: width 1.2s ease; }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .proj-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 24px;
+    position: relative; overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .proj-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(26,26,46,0.1); }
+  .proj-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+  }
+  .proj-meta-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .proj-num { font-family: 'Lora', serif; font-size: 36px; font-weight: 600; color: var(--surface-3); line-height: 1; }
+  .proj-type-badge {
+    font-size: 10px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase;
+    background: var(--accent-light); color: var(--accent); padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .proj-title { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+  .proj-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .proj-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tool-tag {
+    font-size: 11px; color: var(--ink-muted); background: var(--surface-2);
+    padding: 3px 10px; border-radius: 5px; border: 1px solid var(--border);
+  }
+  .proj-result {
+    font-size: 12px; color: var(--accent); background: var(--accent-light);
+    border-radius: 8px; padding: 8px 12px;
+    display: flex; align-items: flex-start; gap: 6px; line-height: 1.5;
+  }
+  .proj-result::before { content: '✓'; font-weight: 700; flex-shrink: 0; }
+
+  /* ACHIEVEMENTS */
+  .achieve-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+  .ach-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 20px; text-align: center;
+  }
+  .ach-icon-wrap {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--accent-light); display: flex; align-items: center;
+    justify-content: center; font-size: 22px; margin: 0 auto 14px;
+  }
+  .ach-num { font-family: 'Lora', serif; font-size: 26px; font-weight: 600; color: var(--ink); }
+  .ach-lbl { font-size: 12px; color: var(--ink-muted); margin-top: 4px; line-height: 1.4; }
+
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .testi-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px;
+  }
+  .testi-stars { color: #f4a261; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
+  .testi-text { font-size: 13px; color: var(--ink-soft); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+  .testi-client { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent); display: flex; align-items: center;
+    justify-content: center; font-size: 13px; font-weight: 600; color: white;
+  }
+  .testi-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .testi-from { font-size: 11px; color: var(--ink-muted); }
+
+  /* PROOF SECTION */
+  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .proof-card {
+    border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+    transition: transform .2s;
+  }
+  .proof-card:hover { transform: translateY(-2px); }
+  .proof-thumb {
+    height: 140px; display: flex; align-items: center; justify-content: center;
+    font-size: 48px; position: relative;
+  }
+  .proof-thumb-1 { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+  .proof-thumb-2 { background: linear-gradient(135deg, #e3f2fd, #bbdefb); }
+  .proof-thumb-3 { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+  .proof-thumb-4 { background: linear-gradient(135deg, #fff3e0, #ffe0b2); }
+  .proof-thumb-5 { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+  .proof-thumb-6 { background: linear-gradient(135deg, #e0f7fa, #b2ebf2); }
+  .proof-body { padding: 16px; background: var(--surface); }
+  .proof-title-text { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .proof-detail-text { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+  .proof-label {
+    display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: .5px;
+    text-transform: uppercase; background: var(--accent-light); color: var(--accent);
+    padding: 3px 8px; border-radius: 4px; margin-top: 8px;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--ink); }
+  #contact .section-label { color: var(--accent-mid); }
+  #contact .section-title { color: white; }
+  #contact .section-sub { color: rgba(255,255,255,0.55); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .contact-icon-big {
+    width: 50px; height: 50px; border-radius: 12px; flex-shrink: 0;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .contact-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .contact-val { font-size: 15px; color: white; font-weight: 500; }
+  .contact-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 3px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 24px 80px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .footer-name { font-family: 'Lora', serif; font-size: 14px; color: rgba(255,255,255,0.6); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+  .hero-left > * { animation: fadeUp .7s ease forwards; opacity: 0; }
+  .hero-left > *:nth-child(1){animation-delay:.1s}
+  .hero-left > *:nth-child(2){animation-delay:.2s}
+  .hero-left > *:nth-child(3){animation-delay:.3s}
+  .hero-left > *:nth-child(4){animation-delay:.4s}
+  .hero-left > *:nth-child(5){animation-delay:.5s}
+  .hero-left > *:nth-child(6){animation-delay:.6s}
+
+  /* MOBILE */
+  @media(max-width:900px){
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 24px 40px; }
+    .hero-right { padding: 40px 24px; min-height: 320px; }
+    section { padding: 60px 24px; }
+    .skills-layout, .projects-grid, .achieve-row, .testimonials-grid, .proof-grid, .contact-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 16px; }
+    .nav-links { display: none; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Abdur <span>Rozak</span></div>
+  <div class="nav-links">
+    <a href="#skills">Keahlian</a>
+    <a href="#projects">Proyek</a>
+    <a href="#achievements">Pencapaian</a>
+    <a href="#proof">Bukti Kerja</a>
+    <a href="#contact">Kontak</a>
+  </div>
+  <a class="nav-cta" href="https://wa.me/6281334397875?text=Halo%20Abdur%2C%20saya%20tertarik%20dengan%20layanan%20admin%20data%20Anda" target="_blank">Hubungi Saya</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="status-badge"><span class="status-dot"></span> Tersedia untuk proyek baru</div>
+    <h1 class="hero-name">Mokhammad<br><em>Abdur Rozak</em></h1>
+    <div class="hero-role">Admin Data &amp; Entry Data · Freelancer</div>
+    <p class="hero-desc">Spesialis pengelolaan data, administrasi digital, dan entri data akurat berbasis Surabaya. Membantu bisnis dan individu mengorganisir, membersihkan, dan mengelola data dengan cepat dan rapi.</p>
+    <div class="hero-contacts">
+      <div class="contact-row">
+        <div class="contact-icon">📧</div>
+        <span>muhammadrozak552@gmail.com</span>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📱</div>
+        <span>0813-3439-7875</span>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📍</div>
+        <span>Surabaya, Jawa Timur</span>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://wa.me/6281334397875?text=Halo%20Abdur%2C%20saya%20tertarik%20dengan%20layanan%20admin%20data%20Anda" target="_blank">💬 Chat WhatsApp</a>
+      <a class="btn-ghost" href="#projects">Lihat Portofolio</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="right-title">Rekam Jejak<br>Freelance</div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-big">500+</div><div class="stat-lbl">Jam kerja data</div></div>
+      <div class="stat-card"><div class="stat-big">40+</div><div class="stat-lbl">Proyek selesai</div></div>
+      <div class="stat-card"><div class="stat-big">30+</div><div class="stat-lbl">Klien puas</div></div>
+      <div class="stat-card"><div class="stat-big">99%</div><div class="stat-lbl">Akurasi data</div></div>
+    </div>
+    <div class="location-badge">📍 Surabaya, Indonesia · Remote-friendly</div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Keahlian</div>
+  <div class="section-title">Yang Saya Kuasai</div>
+  <p class="section-sub">Terlatih dalam berbagai tools administrasi dan pengelolaan data yang digunakan industri nyata.</p>
+  <div class="skills-layout">
+    <div class="skill-group-card">
+      <div class="skill-group-title"><span class="skill-group-icon">📊</span> Spreadsheet & Data</div>
+      <div class="skill-bars">
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Microsoft Excel</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Google Sheets</span><span class="skill-pct">92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Data Cleaning & Validasi</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Pivot Table & Formula</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group-card">
+      <div class="skill-group-title"><span class="skill-group-icon">🗂️</span> Administrasi & Tools</div>
+      <div class="skill-bars">
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Microsoft Word / Docs</span><span class="skill-pct">93%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Input & Rekap Data Cepat</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Google Forms / Typeform</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Manajemen File & Arsip</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group-card">
+      <div class="skill-group-title"><span class="skill-group-icon">🔍</span> Riset & Scraping Data</div>
+      <div class="skill-bars">
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Web Research</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Pengumpulan Data Online</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Lead Generation Manual</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="skill-group-card">
+      <div class="skill-group-title"><span class="skill-group-icon">💼</span> Soft Skills</div>
+      <div class="skill-bars">
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Ketelitian & Akurasi</span><span class="skill-pct">98%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Komunikasi Klien</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Manajemen Deadline</span><span class="skill-pct">92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Proyek</div>
+  <div class="section-title">Pekerjaan Nyata</div>
+  <p class="section-sub">Proyek freelance yang telah diselesaikan — dari entri data skala kecil hingga pengelolaan database besar.</p>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <div class="proj-meta-row">
+        <div class="proj-num">01</div>
+        <div class="proj-type-badge">Entry Data</div>
+      </div>
+      <div class="proj-title">Input Data Inventaris Toko Retail</div>
+      <p class="proj-desc">Memasukkan 3.000+ data produk dari dokumen fisik ke sistem spreadsheet Google Sheets milik klien. Meliputi kode SKU, nama produk, harga, dan stok per kategori.</p>
+      <div class="proj-tools">
+        <span class="tool-tag">Google Sheets</span>
+        <span class="tool-tag">Excel</span>
+        <span class="tool-tag">Data Validation</span>
+      </div>
+      <div class="proj-result">3.200 baris data selesai dalam 3 hari kerja, akurasi 99.7% setelah pengecekan klien.</div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-meta-row">
+        <div class="proj-num">02</div>
+        <div class="proj-type-badge">Data Cleaning</div>
+      </div>
+      <div class="proj-title">Pembersihan Database Pelanggan</div>
+      <p class="proj-desc">Menerima file Excel berisi 5.000+ kontak pelanggan yang duplikat, format tidak konsisten, dan banyak data kosong. Tugas: standardisasi, hapus duplikat, validasi nomor telepon.</p>
+      <div class="proj-tools">
+        <span class="tool-tag">Microsoft Excel</span>
+        <span class="tool-tag">VLOOKUP</span>
+        <span class="tool-tag">Remove Duplicate</span>
+      </div>
+      <div class="proj-result">Dari 5.200 baris menjadi 3.800 baris data bersih dan siap digunakan untuk email marketing.</div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-meta-row">
+        <div class="proj-num">03</div>
+        <div class="proj-type-badge">Rekap Laporan</div>
+      </div>
+      <div class="proj-title">Rekap Absensi & Laporan Bulanan Karyawan</div>
+      <p class="proj-desc">Membantu HR perusahaan kecil merekap data absensi harian 50 karyawan dari WhatsApp dan form manual ke spreadsheet terpusat dengan ringkasan kehadiran otomatis.</p>
+      <div class="proj-tools">
+        <span class="tool-tag">Google Sheets</span>
+        <span class="tool-tag">Formula Otomatis</span>
+        <span class="tool-tag">Pivot Table</span>
+      </div>
+      <div class="proj-result">Template digunakan rutin tiap bulan, menghemat 8 jam kerja admin per bulan untuk klien.</div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-meta-row">
+        <div class="proj-num">04</div>
+        <div class="proj-type-badge">Riset Data</div>
+      </div>
+      <div class="proj-title">Pengumpulan Data Kontak Bisnis</div>
+      <p class="proj-desc">Mengumpulkan 500+ kontak UMKM dan bisnis di Surabaya secara manual dari Google Maps, website, dan media sosial untuk kebutuhan cold outreach klien.</p>
+      <div class="proj-tools">
+        <span class="tool-tag">Google Maps</span>
+        <span class="tool-tag">Excel</span>
+        <span class="tool-tag">Web Research</span>
+      </div>
+      <div class="proj-result">600 kontak terverifikasi lengkap dengan nama, telepon, email, dan kategori bisnis.</div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-meta-row">
+        <div class="proj-num">05</div>
+        <div class="proj-type-badge">Admin Online</div>
+      </div>
+      <div class="proj-title">Pengelolaan Toko Online & Update Produk</div>
+      <p class="proj-desc">Mengelola listing produk di Shopee dan Tokopedia — update harga, stok, deskripsi, dan foto produk secara rutin. Juga merekap penjualan harian ke spreadsheet laporan.</p>
+      <div class="proj-tools">
+        <span class="tool-tag">Shopee Seller</span>
+        <span class="tool-tag">Tokopedia Seller</span>
+        <span class="tool-tag">Google Sheets</span>
+      </div>
+      <div class="proj-result">200+ produk aktif terjaga kerapiannya, zero error stok selama 2 bulan kerjasama.</div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-meta-row">
+        <div class="proj-num">06</div>
+        <div class="proj-type-badge">Dokumen</div>
+      </div>
+      <div class="proj-title">Pengetikan & Formatting Dokumen</div>
+      <p class="proj-desc">Menerima scan dokumen fisik dan audio rekaman untuk diketik ulang menjadi dokumen Word/PDF rapi. Meliputi laporan, proposal, dan dokumen kontrak bisnis.</p>
+      <div class="proj-tools">
+        <span class="tool-tag">Microsoft Word</span>
+        <span class="tool-tag">PDF</span>
+        <span class="tool-tag">Google Docs</span>
+      </div>
+      <div class="proj-result">50+ dokumen diketik dengan turnaround 24 jam, 0 komplain formatting dari klien.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">Pencapaian</div>
+  <div class="section-title">Angka yang Bicara</div>
+  <p class="section-sub">Hasil nyata dari pengalaman freelance yang terus berkembang.</p>
+  <div class="achieve-row">
+    <div class="ach-card">
+      <div class="ach-icon-wrap">⭐</div>
+      <div class="ach-num">5.0</div>
+      <div class="ach-lbl">Rating rata-rata dari klien</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon-wrap">🔄</div>
+      <div class="ach-num">75%</div>
+      <div class="ach-lbl">Klien kembali untuk proyek lanjutan</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon-wrap">⚡</div>
+      <div class="ach-num">24 Jam</div>
+      <div class="ach-lbl">Waktu respons rata-rata</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-icon-wrap">🎯</div>
+      <div class="ach-num">100%</div>
+      <div class="ach-lbl">Proyek selesai tepat waktu</div>
+    </div>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Abdur sangat teliti dan cepat. Data inventaris kami yang berantakan beres dalam 3 hari, dan hasilnya sangat rapi. Recommended banget!"</p>
+      <div class="testi-client">
+        <div class="testi-avatar">BS</div>
+        <div><div class="testi-name">Budi S.</div><div class="testi-from">Pemilik Toko, Surabaya</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Kerja profesional, komunikatif, dan hasilnya sesuai ekspektasi. Database pelanggan kami jadi jauh lebih bersih dan siap dipakai."</p>
+      <div class="testi-client">
+        <div class="testi-avatar">RA</div>
+        <div><div class="testi-name">Rina A.</div><div class="testi-from">Marketing Manager, Sidoarjo</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Template absensi yang dibuat Abdur luar biasa praktis. Tim HR kami hemat banyak waktu setiap bulannya. Pasti pakai jasa beliau lagi."</p>
+      <div class="testi-client">
+        <div class="testi-avatar">DW</div>
+        <div><div class="testi-name">Dewi W.</div><div class="testi-from">HRD, Perusahaan Manufaktur</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF OF WORK -->
+<section id="proof">
+  <div class="section-label">Bukti Hasil Kerja</div>
+  <div class="section-title">Bukan Sekadar Klaim</div>
+  <p class="section-sub">Setiap pekerjaan memiliki dokumentasi nyata yang bisa ditunjukkan kepada calon klien baru.</p>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="proof-thumb proof-thumb-1">📊</div>
+      <div class="proof-body">
+        <div class="proof-title-text">Screenshot Spreadsheet Inventaris</div>
+        <div class="proof-detail-text">Tampilan Google Sheets dengan 3.200 baris data produk terstruktur rapi, lengkap dengan formula validasi.</div>
+        <div class="proof-label">Tersedia on request</div>
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-thumb proof-thumb-2">🗃️</div>
+      <div class="proof-body">
+        <div class="proof-title-text">Before & After Database Cleaning</div>
+        <div class="proof-detail-text">Perbandingan file Excel sebelum dan sesudah dibersihkan — dari data duplikat ke dataset siap pakai.</div>
+        <div class="proof-label">Tersedia on request</div>
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-thumb proof-thumb-3">📋</div>
+      <div class="proof-body">
+        <div class="proof-title-text">Template Absensi Otomatis</div>
+        <div class="proof-detail-text">File Google Sheets dengan formula otomatis yang masih aktif digunakan klien HR setiap bulan.</div>
+        <div class="proof-label">Demo bisa dilihat</div>
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-thumb proof-thumb-4">📝</div>
+      <div class="proof-body">
+        <div class="proof-title-text">Sampel Dokumen Hasil Ketikan</div>
+        <div class="proof-detail-text">Contoh dokumen Word/PDF yang diketik dari scan fisik — rapi, formatted profesional.</div>
+        <div class="proof-label">Sampel tersedia</div>
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-thumb proof-thumb-5">📱</div>
+      <div class="proof-body">
+        <div class="proof-title-text">Bukti Chat Testimoni Klien</div>
+        <div class="proof-detail-text">Screenshot percakapan dan feedback langsung dari klien di WhatsApp dan platform freelance.</div>
+        <div class="proof-label">Tersedia on request</div>
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-thumb proof-thumb-6">🏪</div>
+      <div class="proof-body">
+        <div class="proof-title-text">Rekap Data Toko Online</div>
+        <div class="proof-detail-text">Laporan rekap penjualan harian dari Shopee/Tokopedia yang dibuat untuk klien e-commerce.</div>
+        <div class="proof-label">Sampel tersedia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Kontak</div>
+  <div class="section-title">Siap Bekerja Sama?</div>
+  <p class="section-sub">Hubungi saya untuk konsultasi gratis. Saya siap mengerjakan proyek data entry, cleaning, rekap, dan admin digital Anda.</p>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="contact-icon-big">📧</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val">muhammadrozak552@gmail.com</div>
+        <div class="contact-note">Balasan dalam 24 jam</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon-big">📱</div>
+      <div>
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-val">0813-3439-7875</div>
+        <div class="contact-note">Lebih cepat via WA</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon-big">📍</div>
+      <div>
+        <div class="contact-label">Lokasi</div>
+        <div class="contact-val">Surabaya, Jawa Timur</div>
+        <div class="contact-note">Bisa meeting online / offline</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon-big">🕐</div>
+      <div>
+        <div class="contact-label">Jam Kerja</div>
+        <div class="contact-val">08.00 – 21.00 WIB</div>
+        <div class="contact-note">Senin – Sabtu</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:40px; text-align:center;">
+    <a class="btn-primary" style="font-size:15px; padding:14px 32px;" href="https://wa.me/6281334397875?text=Halo%20Abdur%2C%20saya%20tertarik%20menggunakan%20jasa%20admin%20data%20Anda.%20Boleh%20kita%20diskusi%3F" target="_blank">💬 Mulai Diskusi di WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Mokhammad Abdur Rozak · Surabaya, Indonesia</div>
+  <div class="footer-name">Admin Data & Entry Data Freelancer</div>
+</footer>
+
+<script>
+  const fills = document.querySelectorAll('.skill-fill');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.style.width = e.target.style.width;
+      }
+    });
+  }, {threshold: 0.1});
+  fills.forEach(f => { const w = f.style.width; f.style.width = '0'; setTimeout(()=>{ f.style.width = w; }, 300); io.observe(f); });
+</script>
+</body>
+</html>
